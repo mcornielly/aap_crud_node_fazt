@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('./partials/_head.ejs'); %>
+<body>
+<!-- Star Navbar -->
+    <%- include('./partials/_navbar.ejs'); %>
+<!-- End Navbar -->
+    <div class="container mt-5">
+        <h1 class="text-center">Crud in Nodejs</h1>
+        <div class="row mt-2">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/update/<%= data.id %>" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Nombre" class="form-control" value="<%= data.name %>">
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="text" name="address" placeholder="Dirección" class="form-control" value="<%= data.address %>">
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="text" name="phone" placeholder="Telefono" class="form-control" value="<%= data.phone %>">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Edit Cliente</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--Star Footer -->
+    <%- include('./partials/_footer.ejs'); %>
+<!--End Footer -->
+</html>

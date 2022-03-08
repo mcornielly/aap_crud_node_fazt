@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Head -->
+    <%- include('./partials/_head.ejs'); %>
+<body>
+<!-- Star Navbar -->
+    <%- include('./partials/_navbar.ejs'); %>
+<!-- End Navbar -->
+<div class="container mt-5">
+    <h1 class="text-center">Crud in Nodejs</h1>
+        <div class="row mt-2">
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) { %>
+                            <% for (let i = 0; i < data.length; i++) { %>    
+                                <tr>
+                                    <td><%= (i + 1) %></td>
+                                    <td><%= data[i].name %></td>
+                                    <td><%= data[i].address %></td>
+                                    <td><%= data[i].phone %></td>
+                                    <td>
+                                        <a href="/delete/<%= data[i].id %>" class="btn btn-sm btn-danger">Delete</a>
+                                        <a href="/edit/<%= data[i].id %>" class="btn btn-sm btn-info">Edit</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>                  
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Nombre" class="form-control">
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="text" name="address" placeholder="Dirección" class="form-control">
+                            </div>
+                            <div class="form-group mt-2">
+                                <input type="text" name="phone" placeholder="Telefono" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Nuevo Cliente</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--Star Footer -->
+    <%- include('./partials/_footer.ejs'); %>
+<!--End Footer -->
+</html>
